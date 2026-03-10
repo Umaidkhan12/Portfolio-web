@@ -6,14 +6,14 @@ A modern, responsive personal portfolio website built with **React 19**, **Vite*
 
 ## 🚀 Tech Stack
 
-| Technology                                                          | Version | Purpose                     |
-| ------------------------------------------------------------------- | ------- | --------------------------- |
-| [React](https://react.dev/)                                         | ^19.2.0 | UI Framework                |
-| [Vite](https://vite.dev/)                                           | ^7.3.1  | Build Tool & Dev Server     |
-| [Tailwind CSS](https://tailwindcss.com/)                            | ^4.2.1  | Styling                     |
-| [Three.js](https://threejs.org/)                                    | latest  | 3D Graphics                 |
-| [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber)        | latest  | React renderer for Three.js |
-| [GSAP](https://gsap.com/)                                           | latest  | Animations                  |
+| Technology                                                   | Version | Purpose                     |
+| ------------------------------------------------------------ | ------- | --------------------------- |
+| [React](https://react.dev/)                                  | ^19.2.0 | UI Framework                |
+| [Vite](https://vite.dev/)                                    | ^7.3.1  | Build Tool & Dev Server     |
+| [Tailwind CSS](https://tailwindcss.com/)                     | ^4.2.1  | Styling                     |
+| [Three.js](https://threejs.org/)                             | ^15.2.0 | 3D Graphics                 |
+| [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber) | ^9.5.0  | React renderer for Three.js |
+| [GSAP](https://gsap.com/)                                    | ^3.12.2 | Animations                  |
 
 ---
 
