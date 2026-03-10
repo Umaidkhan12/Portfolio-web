@@ -1,16 +1,75 @@
-# React + Vite
+# 🌐 Umaid Khan — Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive personal portfolio website built with **React 19**, **Vite**, **Tailwind CSS v4**, **Three.js**, and **GSAP** animations.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+| Technology                                                          | Version | Purpose                     |
+| ------------------------------------------------------------------- | ------- | --------------------------- |
+| [React](https://react.dev/)                                         | ^19.2.0 | UI Framework                |
+| [Vite](https://vite.dev/)                                           | ^7.3.1  | Build Tool & Dev Server     |
+| [Tailwind CSS](https://tailwindcss.com/)                            | ^4.2.1  | Styling                     |
+| [Three.js](https://threejs.org/)                                    | latest  | 3D Graphics                 |
+| [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber)        | latest  | React renderer for Three.js |
+| [GSAP](https://gsap.com/)                                           | latest  | Animations                  |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+Portfolio/
+├── public/              # Static assets
+├── src/
+│   ├── assets/          # Images and media
+│   ├── App.jsx          # Root component
+│   ├── App.css          # Global styles
+│   └── main.jsx         # Application entry point
+├── index.html           # HTML template
+├── vite.config.js       # Vite configuration
+├── eslint.config.js     # ESLint configuration
+└── package.json
+```
+
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/Umaidkhan12/Portfolio-web.git
+   cd Portfolio-web
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 📬 Contact
+
+**Umaid Khan**
+
+Feel free to connect or reach out!
+
+---
+
+> Built with ❤️ using React + Vite + Three.js + GSAP
