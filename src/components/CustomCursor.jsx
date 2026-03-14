@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
@@ -60,26 +60,14 @@ const CustomCursor = () => {
       opacity: isVisible && !isDragging ? 1 : 0,
       backgroundColor: 'transparent',
       borderColor: 'rgba(255, 255, 255, 0.4)',
-      transition: {
-        type: 'spring',
-        mass: 0.1,
-        stiffness: 800,
-        damping: 35
-      }
     },
     hover: {
       x: mousePosition.x - 24,
       y: mousePosition.y - 24,
       scale: 1.5,
       opacity: isVisible && !isDragging ? 1 : 0,
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-      borderColor: '#ffffff',
-      transition: {
-        type: 'spring',
-        mass: 0.1,
-        stiffness: 800,
-        damping: 35
-      }
+      backgroundColor: 'rgba(201,168,76,0.08)',
+      borderColor: '#c9a84c',
     }
   };
 

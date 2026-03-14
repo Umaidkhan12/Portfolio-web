@@ -1,16 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #09090b;
-  --color-bg-secondary: #18181b;
+  --color-bg: #070707;
+  --color-bg-secondary: #0e0e0e;
   --color-text-main: #f4f4f5;
-  --color-text-muted: #a1a1aa;
-  --color-primary: #3b82f6;
-  --color-primary-hover: #2563eb;
-  --color-accent: #06b6d4;
+  --color-text-muted: #71717a;
+  --color-primary: #c9a84c;
 
-  --font-sans: "Open Sans", sans-serif;
+  --font-sans: "Space Mono", monospace;
   --font-heading: "Playfair Display", serif;
+  --font-mono: "Space Mono", monospace;
 }
 
 @layer base {
@@ -23,14 +22,11 @@
     overflow-x: hidden;
   }
 
-  /* Editorial Grain Overlay */
+  /* Film grain overlay */
   body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     opacity: 0.04;
     pointer-events: none;
     z-index: 9999;

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useSpring, useMotionValue } from 'framer-motion';
+import { motion, useSpring, useMotionValue } from 'motion/react';
 
 const Magnetic = ({ children, factor = 0.35 }) => {
   const ref = useRef(null);
