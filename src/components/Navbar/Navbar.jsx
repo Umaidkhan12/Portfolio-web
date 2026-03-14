@@ -8,7 +8,7 @@ import {
   formatDate,
   scrollTo,
 } from "../../constants";
-import Logo from "../assets/Logo.svg";
+import Logo from "../../assets/Logo.svg";
 
 const Navbar = () => {
   const [time, setTime] = useState(new Date());

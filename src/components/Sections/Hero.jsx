@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import Magnetic from "../UI/Magnetic";
 import { SITE_CONFIG, scrollTo } from "../../constants";
-import Logo from "../assets/Logo.svg";
+import Logo from "../../assets/Logo.svg";
 
 const container = {
   hidden: { opacity: 0 },
