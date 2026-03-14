@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useState, useRef } from "react";
-import { PROJECTS } from "../constants";
+import { PROJECTS } from "../../constants";
 
 const Card = ({ project, i }) => {
   const ref = useRef(null);

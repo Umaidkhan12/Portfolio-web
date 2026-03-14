@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
-import Magnetic from "./Magnetic";
-import { SITE_CONFIG } from "../constants";
+import Magnetic from "../UI/Magnetic";
+import { SITE_CONFIG } from "../../constants";
 
 const socials = [
   { id: "01", label: "LinkedIn", href: SITE_CONFIG.social.linkedin },

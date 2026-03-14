@@ -1,12 +1,18 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import Magnetic from './Magnetic';
-import { NAV_LINKS, SITE_CONFIG, formatTime, formatDate, scrollTo } from '../constants';
-import Logo from '../assets/Logo.svg';
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import Magnetic from "../UI/Magnetic";
+import {
+  NAV_LINKS,
+  SITE_CONFIG,
+  formatTime,
+  formatDate,
+  scrollTo,
+} from "../../constants";
+import Logo from "../assets/Logo.svg";
 
 const Navbar = () => {
-  const [time,     setTime]     = useState(new Date());
-  const [active,   setActive]   = useState('hero');
+  const [time, setTime] = useState(new Date());
+  const [active, setActive] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -15,20 +21,23 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const ids = ['hero', ...NAV_LINKS.map((l) => l.section)];
+    const ids = ["hero", ...NAV_LINKS.map((l) => l.section)];
     const els = ids.map((id) => document.getElementById(id)).filter(Boolean);
     const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
-      { threshold: 0.3 }
+      (entries) =>
+        entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { threshold: 0.3 },
     );
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
 
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 1024) setMenuOpen(false); };
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setMenuOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
   const handleNav = (section) => {
@@ -51,10 +60,14 @@ const Navbar = () => {
         <div className="absolute top-6 left-6 md:top-8 md:left-8 lg:top-10 lg:left-10 pointer-events-auto flex flex-col gap-1">
           <Magnetic factor={0.2}>
             <button
-              onClick={() => handleNav('hero')}
+              onClick={() => handleNav("hero")}
               className="bg-transparent border-0 p-0 cursor-pointer"
             >
-              <img src={Logo} alt={SITE_CONFIG.name} className="w-8 h-8 md:w-9 md:h-9 object-contain" />
+              <img
+                src={Logo}
+                alt={SITE_CONFIG.name}
+                className="w-8 h-8 md:w-9 md:h-9 object-contain"
+              />
             </button>
           </Magnetic>
 
@@ -67,7 +80,9 @@ const Navbar = () => {
             </span>
             <div className="flex items-center gap-2 mt-1">
               <div className="w-4 h-[0.5px] bg-white/15" />
-              <span className="text-[7px] font-mono tracking-[0.3em] uppercase text-primary/50">Online</span>
+              <span className="text-[7px] font-mono tracking-[0.3em] uppercase text-primary/50">
+                Online
+              </span>
             </div>
           </div>
         </div>
@@ -81,9 +96,18 @@ const Navbar = () => {
                      hover:border-primary/40 transition-colors duration-300"
           aria-label="Toggle menu"
         >
-          <motion.span animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6.3 : 0 }}   className="block w-4 h-[0.5px] bg-white/50" />
-          <motion.span animate={{ opacity: menuOpen ? 0 : 1 }}                         className="block w-4 h-[0.5px] bg-white/50" />
-          <motion.span animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6.3 : 0 }} className="block w-4 h-[0.5px] bg-white/50" />
+          <motion.span
+            animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6.3 : 0 }}
+            className="block w-4 h-[0.5px] bg-white/50"
+          />
+          <motion.span
+            animate={{ opacity: menuOpen ? 0 : 1 }}
+            className="block w-4 h-[0.5px] bg-white/50"
+          />
+          <motion.span
+            animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6.3 : 0 }}
+            className="block w-4 h-[0.5px] bg-white/50"
+          />
         </button>
 
         {/* Desktop nav — top right */}
@@ -91,10 +115,13 @@ const Navbar = () => {
           <nav className="flex flex-col gap-3 items-end relative py-2">
             {/* Scan line */}
             <motion.div
-              animate={{ top: ['0%', '100%'] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+              animate={{ top: ["0%", "100%"] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
               className="absolute right-[-12px] w-[1px] h-10 pointer-events-none z-50"
-              style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.3), transparent)' }}
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent, rgba(201,168,76,0.3), transparent)",
+              }}
             />
             <div className="absolute right-[-12px] top-0 bottom-0 w-[1px] bg-white/[0.06]" />
 
@@ -110,20 +137,27 @@ const Navbar = () => {
                     className="group relative flex items-baseline gap-3 py-0.5 text-right
                                bg-transparent border-0 cursor-pointer"
                   >
-                    <span className="text-[7px] font-mono text-primary opacity-0 translate-x-1
-                                     group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                    <span
+                      className="text-[7px] font-mono text-primary opacity-0 translate-x-1
+                                     group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                    >
                       [{link.id}]
                     </span>
-                    <span className={`font-heading font-light tracking-tighter transition-all duration-300
-                      ${isActive
-                        ? 'text-white italic text-xl md:text-2xl'
-                        : 'text-white/35 text-lg md:text-xl group-hover:text-white group-hover:italic'
+                    <span
+                      className={`font-heading font-light tracking-tighter transition-all duration-300
+                      ${
+                        isActive
+                          ? "text-white italic text-xl md:text-2xl"
+                          : "text-white/35 text-lg md:text-xl group-hover:text-white group-hover:italic"
                       }`}
                     >
                       {link.name}
                     </span>
                     {isActive && (
-                      <motion.div layoutId="dot" className="w-1 h-1 rounded-full bg-primary mb-1" />
+                      <motion.div
+                        layoutId="dot"
+                        className="w-1 h-1 rounded-full bg-primary mb-1"
+                      />
                     )}
                   </motion.button>
                 </Magnetic>
@@ -169,15 +203,17 @@ const Navbar = () => {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, clipPath: 'inset(0 0 0 100%)' }}
-            animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
-            exit={{ opacity: 0, clipPath: 'inset(0 0 0 100%)' }}
+            initial={{ opacity: 0, clipPath: "inset(0 0 0 100%)" }}
+            animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
+            exit={{ opacity: 0, clipPath: "inset(0 0 0 100%)" }}
             transition={{ duration: 0.5, ease: [0.76, 0, 0.75, 1] }}
             className="fixed inset-0 z-[90] bg-bg flex flex-col items-start justify-center gap-2 lg:hidden px-10 sm:px-16"
           >
             <div className="flex items-center gap-3 opacity-30 mb-4">
               <div className="w-5 h-[0.5px] bg-primary" />
-              <span className="text-[13px] font-mono tracking-[0.4em] uppercase text-primary">Navigation</span>
+              <span className="text-[13px] font-mono tracking-[0.4em] uppercase text-primary">
+                Navigation
+              </span>
             </div>
 
             {NAV_LINKS.map((link, i) => (
@@ -187,15 +223,20 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 12 }}
-                transition={{ delay: i * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                transition={{
+                  delay: i * 0.06,
+                  duration: 0.4,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 className={`group flex items-baseline gap-4 bg-transparent border-0 cursor-pointer py-2
-                  ${active === link.section ? 'text-white' : 'text-white/30 hover:text-white/80'}`}
+                  ${active === link.section ? "text-white" : "text-white/30 hover:text-white/80"}`}
               >
                 <span className="text-[8px] font-mono text-primary/50 group-hover:text-primary transition-colors duration-300">
                   {link.id}
                 </span>
-                <span className={`font-heading tracking-tighter transition-all duration-300 text-4xl sm:text-5xl
-                  ${active === link.section ? 'italic' : 'group-hover:italic'}`}
+                <span
+                  className={`font-heading tracking-tighter transition-all duration-300 text-4xl sm:text-5xl
+                  ${active === link.section ? "italic" : "group-hover:italic"}`}
                 >
                   {link.name}
                 </span>

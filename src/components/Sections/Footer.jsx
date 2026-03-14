@@ -1,5 +1,5 @@
 import Logo from "../assets/Logo.svg";
-import { SITE_CONFIG } from "../constants";
+import { SITE_CONFIG } from "../../constants";
 
 const Footer = () => (
   <footer className="py-12 md:py-16 px-6 md:px-12 lg:px-16 border-t border-white/[0.04] relative overflow-hidden">
