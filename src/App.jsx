@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 import CustomCursor from "./components/UI/CustomCursor";
 import Navbar from "./components/Navbar/Navbar";
 import Background3D from "./components/UI/Background3D";
