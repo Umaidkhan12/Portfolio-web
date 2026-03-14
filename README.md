@@ -5,11 +5,11 @@
 [![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Three.js](https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
 
-[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://umaidkhan-sigma.vercel.app/)
+[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://umaidkhan.vercel.app/)
 
 A modern, responsive personal portfolio website built with **React 19**, **Vite**, **Tailwind CSS v4**, **Three.js**, and **GSAP** animations.
 
-**[Live Demo 🚀](https://umaidkhan-sigma.vercel.app/)**
+**[Live Demo 🚀](https://umaidkhan.vercel.app/)**
 
 ---
 
@@ -85,7 +85,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## 🌐 Live Demo & Deployment
 
-**Check out the live site: [umaidkhan-sigma.vercel.app](https://umaidkhan-sigma.vercel.app/)**
+**Check out the live site: [umaidkhan.vercel.app](https://umaidkhan.vercel.app/)**
 
 The easiest way to deploy this portfolio is using the [Vercel Platform](https://vercel.com/new).
 
