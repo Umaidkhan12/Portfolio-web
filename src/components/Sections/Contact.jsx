@@ -58,7 +58,7 @@ const Contact = () => {
                 style={{ fontSize: "clamp(44px, 7vw, 96px)" }}
               >
                 Let's start <br />
-                <span className="text-white/20 hover:text-white transition-colors duration-500 cursor-default">
+                <span className="text-white/45 hover:text-white transition-colors duration-500 cursor-default">
                   something
                 </span>{" "}
                 <br />
@@ -79,7 +79,7 @@ const Contact = () => {
             {/* Contact Details */}
             <div className="space-y-6">
               <div className="group">
-                <p className="text-[11px] font-mono uppercase tracking-widest text-white/30 mb-2">
+                <p className="text-[11px] font-mono uppercase tracking-widest text-white/55 mb-2">
                   Direct Line
                 </p>
                 <Magnetic factor={0.1}>
@@ -117,52 +117,56 @@ const Contact = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="bg-white/[0.02] backdrop-blur-md border border-white/5 p-8 md:p-12 rounded-[2rem] shadow-2xl"
+            className="relative bg-white/[0.02] backdrop-blur-md border border-white/5 p-8 md:p-12 rounded-[2rem] shadow-2xl"
           >
+            {/* Form HUD Corners */}
+            <div className="absolute top-0 right-0 w-20 h-20 border-t border-r border-primary/20 rounded-tr-[2rem] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-20 h-20 border-b border-l border-primary/20 rounded-bl-[2rem] pointer-events-none" />
+
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-mono uppercase tracking-widest text-white/30">
+                  <label className="text-[10px] font-mono uppercase tracking-widest text-primary/60">
                     Name
                   </label>
                   <input
                     type="text"
                     required
-                    className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-primary transition-colors font-mono text-[16px] md:text-sm placeholder:text-white/5"
+                    className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-primary transition-colors font-mono text-[16px] md:text-sm placeholder:text-white/40"
                     placeholder="Enter your name"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-mono uppercase tracking-widest text-white/30">
+                  <label className="text-[10px] font-mono uppercase tracking-widest text-primary/60">
                     Email Address
                   </label>
                   <input
                     type="email"
                     required
-                    className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-primary transition-colors font-mono text-[16px] md:text-sm placeholder:text-white/5"
+                    className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-primary transition-colors font-mono text-[16px] md:text-sm placeholder:text-white/40"
                     placeholder="email@example.com"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-mono uppercase tracking-widest text-white/30">
+                <label className="text-[10px] font-mono uppercase tracking-widest text-primary/60">
                   What are you looking for?
                 </label>
                 <input
                   type="text"
-                  className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-primary transition-colors font-mono text-sm placeholder:text-white/5"
+                  className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-primary transition-colors font-mono text-sm placeholder:text-white/40"
                   placeholder="e.g. Website Design, Branding, Development"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-mono uppercase tracking-widest text-white/30">
+                <label className="text-[10px] font-mono uppercase tracking-widest text-primary/60">
                   Tell me about your project
                 </label>
                 <textarea
                   rows="4"
-                  className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-primary transition-colors font-mono text-sm resize-none placeholder:text-white/5"
+                  className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-primary transition-colors font-mono text-sm resize-none placeholder:text-white/40"
                   placeholder="Hey Umaid, I'd love to work with you on..."
                 />
               </div>
@@ -177,12 +181,34 @@ const Contact = () => {
                       ${formState === "idle" ? "bg-primary text-black hover:scale-105 active:scale-95" : "bg-white/10 text-white cursor-not-allowed"}
                     `}
                   >
-                    {formState === "idle" && "Send Message"}
-                    {formState === "sending" && "Transmitting..."}
-                    {formState === "success" && "Message Sent ★"}
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      →
-                    </span>
+                    {formState === "idle" && (
+                      <>
+                        <span>Send Message</span>
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                      </>
+                    )}
+                    {formState === "sending" && (
+                      <>
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full"
+                        />
+                        <span>Transmitting...</span>
+                      </>
+                    )}
+                    {formState === "success" && (
+                      <>
+                        <motion.span
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="text-primary"
+                        >
+                          ✓
+                        </motion.span>
+                        <span>Message Sent</span>
+                      </>
+                    )}
                   </button>
                 </Magnetic>
               </div>

@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { TECH_STACK } from "../../constants";
+import MaskText from "../UI/MaskText";
 
 const Skills = () => (
   <section
@@ -29,23 +30,21 @@ const Skills = () => (
               02 / Skills & Tools
             </span>
           </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-heading italic tracking-tight"
-            style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
-          >
-            My Skills
-          </motion.h2>
+          <MaskText>
+            <h2
+              className="font-heading italic tracking-tight"
+              style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
+            >
+              My Skills
+            </h2>
+          </MaskText>
         </div>
         <motion.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="hidden md:block text-[10px] md:text-[11px] font-mono tracking-[0.3em] uppercase text-white/20 border border-white/[0.08] px-4 py-2"
+          className="hidden md:block text-[10px] md:text-[11px] font-mono tracking-[0.3em] uppercase text-white/45 border border-white/[0.08] px-4 py-2"
         >
           {TECH_STACK.reduce((a, g) => a + g.items.length, 0)} Technologies
         </motion.span>
@@ -64,12 +63,16 @@ const Skills = () => (
               duration: 0.7,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="group p-8 md:p-10 bg-bg hover:bg-white/[0.02] transition-colors duration-500"
+            className="group relative p-8 md:p-10 bg-bg hover:bg-white/[0.02] transition-colors duration-500"
           >
+            {/* Corner Accents */}
+            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/[0.08] group-hover:border-primary/40 transition-colors" />
+            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/[0.08] group-hover:border-primary/40 transition-colors" />
+
             <span className="text-[10px] md:text-[11px] font-mono tracking-[0.4em] uppercase text-primary/40 block mb-5">
               0{i + 1}
             </span>
-            <h3 className="font-heading italic text-2xl md:text-3xl mb-7 text-white/75 group-hover:text-white transition-colors duration-300">
+            <h3 className="font-heading italic text-2xl md:text-3xl mb-7 text-white/85 group-hover:text-white transition-colors duration-300">
               {group.category}
             </h3>
             <div className="w-full h-[0.5px] bg-white/[0.06] mb-7 group-hover:bg-primary/20 transition-colors duration-500" />
@@ -84,7 +87,7 @@ const Skills = () => (
                   className="flex items-center gap-3 group/item"
                 >
                   <div className="w-1 h-1 rounded-full bg-primary/30 group-hover/item:bg-primary transition-colors duration-300 shrink-0" />
-                  <span className="text-[12px] md:text-[13px] font-mono tracking-[0.2em] uppercase text-white/40 group-hover/item:text-white/80 transition-colors duration-300">
+                  <span className="text-[12px] md:text-[13px] font-mono tracking-[0.2em] uppercase text-white/70 group-hover/item:text-white transition-colors duration-300">
                     {item}
                   </span>
                 </motion.div>

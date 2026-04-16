@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import Magnetic from "../UI/Magnetic";
 import { SITE_CONFIG, scrollTo } from "../../constants";
 import Logo from "../../assets/Logo.svg";
+import MaskText from "../UI/MaskText";
 
 const container = {
   hidden: { opacity: 0 },
@@ -71,18 +72,20 @@ const Hero = () => (
     </motion.div>
 
     {/* Heading */}
-    <motion.h1
-      variants={item}
-      className="font-heading font-bold italic tracking-[-0.04em] leading-[0.88] mb-6 z-10 whitespace-pre-line"
-      style={{ fontSize: "clamp(64px, 12vw, 148px)" }}
-    >
-      {SITE_CONFIG.hero.title}
-    </motion.h1>
+    <MaskText className="z-10 mb-6" delay={0.6}>
+      <h1
+        className="font-heading font-bold italic tracking-[-0.04em] leading-[0.88] whitespace-pre-line
+                   bg-gradient-to-br from-primary via-white to-white/70 bg-clip-text text-transparent"
+        style={{ fontSize: "clamp(64px, 12vw, 148px)" }}
+      >
+        {SITE_CONFIG.hero.title}
+      </h1>
+    </MaskText>
 
     {/* Subtitle */}
     <motion.p
       variants={item}
-      className="max-w-xs sm:max-w-md lg:max-w-lg text-white/35 font-mono text-[13px] md:text-[14px] leading-relaxed tracking-wide mb-10 z-10"
+      className="max-w-xs sm:max-w-md lg:max-w-lg text-white/70 font-mono text-[13px] md:text-[14px] leading-relaxed tracking-wide mb-10 z-10"
     >
       {SITE_CONFIG.hero.subtitle}
     </motion.p>
@@ -114,7 +117,7 @@ const Hero = () => (
       variants={item}
       className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-20"
     >
-      <span className="text-[7px] font-mono tracking-[0.5em] uppercase">
+      <span className="text-[7px] font-mono tracking-[0.5em] uppercase text-white/40">
         Scroll
       </span>
       <motion.div

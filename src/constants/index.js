@@ -19,7 +19,7 @@ export const scrollTo = (sectionId) => {
 export const SITE_CONFIG = {
   name:     'Umaid Khan',
   role:     'Creative Developer',
-  version:  'V.01',
+  version:  'V.02',
   year:     '2026',
   location: '19.0260° N, 72.8720° E',
   city:     'Mumbai, India',

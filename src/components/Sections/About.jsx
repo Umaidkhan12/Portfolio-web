@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ABOUT_STATS } from "../../constants";
+import MaskText from "../UI/MaskText";
 
 const About = () => (
   <section
@@ -30,24 +31,21 @@ const About = () => (
       </motion.div>
 
       {/* Heading */}
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        className="font-heading italic font-bold tracking-tighter leading-none mb-16"
-        style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
-      >
-        Specializing in{" "}
-        <span className="text-white/20 hover:text-white transition-colors duration-500 cursor-default">
-          high-end
-        </span>{" "}
-        digital products
-        <br />
-        with a focus on <span className="text-primary italic">
-          motion
-        </span> and <span className="text-white">refined</span> aesthetics.
-      </motion.h2>
+      <MaskText className="mb-16">
+        <h2
+          className="font-heading italic font-bold tracking-tighter leading-none"
+          style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
+        >
+          Specializing in{" "}
+          <span className="text-white/45 hover:text-white transition-colors duration-500 cursor-default">
+            high-end
+          </span>{" "}
+          digital products
+          <br />
+          with a focus on <span className="text-primary italic">motion</span> and{" "}
+          <span className="text-white">refined</span> aesthetics.
+        </h2>
+      </MaskText>
 
       {/* Gold divider */}
       <motion.div
@@ -74,7 +72,7 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.35 + i * 0.1 }}
-            className="text-white/35 text-[13px] md:text-sm font-mono leading-[1.8] hover:text-white/55 transition-colors duration-500"
+            className="text-white/80 text-[13px] md:text-sm font-mono leading-[1.8] hover:text-white transition-colors duration-500"
           >
             {text}
           </motion.p>
@@ -94,7 +92,7 @@ const About = () => (
             <span className="font-heading italic text-3xl md:text-4xl text-white/75">
               {s.num}
             </span>
-            <span className="text-[10px] md:text-[11px] font-mono tracking-[0.35em] uppercase text-white/25">
+            <span className="text-[10px] md:text-[11px] font-mono tracking-[0.35em] uppercase text-white/45">
               {s.label}
             </span>
           </div>

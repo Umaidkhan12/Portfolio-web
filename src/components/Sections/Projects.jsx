@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useState, useRef } from "react";
 import { PROJECTS } from "../../constants";
+import MaskText from "../UI/MaskText";
 
 const Card = ({ project, i }) => {
   const ref = useRef(null);
@@ -68,7 +69,7 @@ const Card = ({ project, i }) => {
         <div className="flex justify-between items-start">
           <motion.span
             animate={{
-              color: hovered ? project.color : "rgba(255,255,255,0.18)",
+              color: hovered ? project.color : "rgba(255,255,255,0.45)",
             }}
             transition={{ duration: 0.3 }}
             className="text-[11px] font-mono tracking-[0.3em]"
@@ -99,9 +100,9 @@ const Card = ({ project, i }) => {
             {project.title}
           </motion.h3>
           <motion.p
-            animate={{ opacity: hovered ? 0.45 : 0, y: hovered ? 0 : 6 }}
+            animate={{ opacity: hovered ? 0.8 : 0, y: hovered ? 0 : 6 }}
             transition={{ duration: 0.35 }}
-            className="text-[13px] font-mono leading-relaxed"
+            className="text-[13px] font-mono leading-relaxed text-white"
           >
             {project.description}
           </motion.p>
@@ -117,7 +118,7 @@ const Card = ({ project, i }) => {
                   borderColor: hovered
                     ? project.color
                     : "rgba(255,255,255,0.1)",
-                  color: hovered ? project.color : "rgba(255,255,255,0.3)",
+                  color: hovered ? project.color : "rgba(255,255,255,0.55)",
                 }}
                 transition={{ duration: 0.3, delay: t * 0.05 }}
                 className="text-[10px] font-mono uppercase tracking-[0.25em] px-2 py-1 border"
@@ -126,7 +127,7 @@ const Card = ({ project, i }) => {
               </motion.span>
             ))}
           </div>
-          <span className="text-[10px] font-mono text-white/15 tabular-nums">
+          <span className="text-[10px] font-mono text-white/50 tabular-nums">
             {project.year}
           </span>
         </div>
@@ -157,16 +158,14 @@ const Projects = () => (
           </motion.div>
 
           <div>
-            <motion.h2
-              initial={{ y: "105%" }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="font-heading italic tracking-tight"
-              style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
-            >
-              Projects
-            </motion.h2>
+            <MaskText>
+              <h2
+                className="font-heading italic tracking-tight"
+                style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
+              >
+                Projects
+              </h2>
+            </MaskText>
           </div>
         </div>
 
@@ -199,7 +198,7 @@ const Projects = () => (
         <motion.button
           whileTap={{ scale: 0.97 }}
           className="text-[10px] md:text-[11px] font-mono uppercase tracking-[0.3em] px-5 py-2.5
-                     border border-white/[0.08] text-white/25
+                     border border-white/[0.08] text-white/55
                      hover:text-white/70 hover:border-white/20 transition-all duration-300 cursor-pointer bg-transparent"
         >
           View All →

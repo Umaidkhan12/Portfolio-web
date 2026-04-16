@@ -1,95 +1,100 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+import { useEffect, useState, useRef } from "react";
+import { motion, useSpring, useMotionValue } from "motion/react";
 
 const CustomCursor = () => {
-  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
-  const [isHovering, setIsHovering] = useState(false);
+  const [cursorType, setCursorType] = useState("default");
   const [isVisible, setIsVisible] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
+  
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+
+  const springConfig = { stiffness: 400, damping: 28, mass: 0.5 };
+  const borderX = useSpring(cursorX, springConfig);
+  const borderY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    const updateMousePosition = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    const moveCursor = (e) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
+    };
+
+    const handleMouseOver = (e) => {
+      const target = e.target.closest("button, a, .cursor-pointer");
+      if (target) {
+        setCursorType("pointer");
+      } else if (e.target.closest("h1, h2, h3")) {
+        setCursorType("heading");
+      } else {
+        setCursorType("default");
+      }
     };
 
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
 
-    const handleMouseOver = (e) => {
-      const target = e.target;
-      if (
-        target.tagName.toLowerCase() === 'a' ||
-        target.tagName.toLowerCase() === 'button' ||
-        target.closest('a') ||
-        target.closest('button') ||
-        window.getComputedStyle(target).cursor === 'pointer'
-      ) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
-    };
-
-    const handleDragStart = () => setIsDragging(true);
-    const handleDragEnd = () => setIsDragging(false);
-
-    window.addEventListener('mousemove', updateMousePosition);
-    window.addEventListener('mouseover', handleMouseOver);
-    window.addEventListener('dragstart', handleDragStart);
-    window.addEventListener('dragend', handleDragEnd);
-    document.addEventListener('mouseleave', handleMouseLeave);
-    document.addEventListener('mouseenter', handleMouseEnter);
+    window.addEventListener("mousemove", moveCursor);
+    window.addEventListener("mouseover", handleMouseOver);
+    document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseenter", handleMouseEnter);
 
     return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-      window.removeEventListener('mouseover', handleMouseOver);
-      window.removeEventListener('dragstart', handleDragStart);
-      window.removeEventListener('dragend', handleDragEnd);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      document.removeEventListener('mouseenter', handleMouseEnter);
+      window.removeEventListener("mousemove", moveCursor);
+      window.removeEventListener("mouseover", handleMouseOver);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseenter", handleMouseEnter);
     };
-  }, [isVisible]);
-
-  // Framer Motion constraints and configurations
-  const variants = {
-    default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      scale: 1,
-      opacity: isVisible && !isDragging ? 1 : 0,
-      backgroundColor: 'transparent',
-      borderColor: 'rgba(255, 255, 255, 0.4)',
-    },
-    hover: {
-      x: mousePosition.x - 24,
-      y: mousePosition.y - 24,
-      scale: 1.5,
-      opacity: isVisible && !isDragging ? 1 : 0,
-      backgroundColor: 'rgba(201,168,76,0.08)',
-      borderColor: '#c9a84c',
-    }
-  };
+  }, [cursorX, cursorY, isVisible]);
 
   return (
-    <div className="hidden md:block">
-      {/* Outer animated circle */}
+    <>
+      {/* Outer Border (Delayed physics) */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border-[1.5px] pointer-events-none z-[9999] mix-blend-difference"
-        variants={variants}
-        animate={isHovering ? 'hover' : 'default'}
-      />
-      
-      {/* Inner precise dot */}
-      <div 
-        className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[9999] bg-white mix-blend-difference"
+        className="fixed top-0 left-0 rounded-full border border-primary/40 pointer-events-none z-[10000] hidden md:block"
         style={{
-          transform: `translate(${mousePosition.x - 4}px, ${mousePosition.y - 4}px)`,
-          transition: 'transform 0.05s linear',
-          opacity: isHovering || !isVisible || isDragging ? 0 : 1
+          x: borderX,
+          y: borderY,
+          translateX: "-50%",
+          translateY: "-50%",
+          width: cursorType === "pointer" ? 64 : cursorType === "heading" ? 100 : 32,
+          height: cursorType === "pointer" ? 64 : cursorType === "heading" ? 100 : 32,
+          backgroundColor: cursorType === "heading" ? "rgba(201,168,76,0.08)" : "transparent",
+          opacity: isVisible ? 1 : 0,
         }}
       />
-    </div>
+      
+      {/* Inner Dot (Instant) */}
+      <motion.div
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-primary rounded-full pointer-events-none z-[10001] hidden md:block"
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: "-50%",
+          translateY: "-50%",
+          scale: cursorType === "pointer" ? 0 : 1,
+          opacity: isVisible ? 1 : 0,
+        }}
+      />
+      
+      {/* Magnetic HUD text (Optional flair) */}
+      {cursorType === "heading" && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="fixed top-0 left-0 pointer-events-none z-[10002] hidden lg:block"
+          style={{
+            x: cursorX,
+            y: cursorY,
+            translateX: 40,
+            translateY: -40,
+          }}
+        >
+          <span className="text-[8px] font-mono uppercase tracking-[0.3em] text-primary/60">
+            View Section
+          </span>
+        </motion.div>
+      )}
+    </>
   );
 };
 

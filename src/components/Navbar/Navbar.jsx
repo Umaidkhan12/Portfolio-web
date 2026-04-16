@@ -10,7 +10,7 @@ import {
 } from "../../constants";
 import Logo from "../../assets/Logo.svg";
 
-const Navbar = () => {
+const Navbar = ({ loading }) => {
   const [time, setTime] = useState(new Date());
   const [active, setActive] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,16 +21,33 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    // If we are still loading, wait.
+    if (loading) return;
+
     const ids = ["hero", ...NAV_LINKS.map((l) => l.section)];
-    const els = ids.map((id) => document.getElementById(id)).filter(Boolean);
-    const obs = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
-      { threshold: 0.3 },
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
+    // Add a small delay to ensure the DOM has finished rendering the lazy components
+    const timer = setTimeout(() => {
+      const els = ids.map((id) => document.getElementById(id)).filter(Boolean);
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              // We only set active if the section is truly visible in our focus area
+              setActive(e.target.id);
+            }
+          });
+        },
+        { 
+          threshold: [0.1, 0.5, 0.8], // Multi-threshold for better accuracy
+          rootMargin: "-25% 0px -25% 0px" // Focus on the center 50% of the screen
+        },
+      );
+      els.forEach((el) => obs.observe(el));
+      return () => obs.disconnect();
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, [loading]);
 
   useEffect(() => {
     const onResize = () => {
