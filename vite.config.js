@@ -10,18 +10,15 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'react-vendor';
-            }
+            // Three.js is safe to isolate — it's self-contained
             if (id.includes('three') || id.includes('@react-three')) {
               return 'three-vendor';
-            }
-            if (id.includes('framer-motion') || id.includes('motion')) {
-              return 'motion-vendor';
             }
             if (id.includes('gsap')) {
               return 'gsap-vendor';
             }
+            // React, motion and everything else stays in one vendor chunk
+            // to prevent duplicate React instance crashes
             return 'vendor';
           }
         }
