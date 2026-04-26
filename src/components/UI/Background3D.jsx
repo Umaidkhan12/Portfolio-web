@@ -16,8 +16,7 @@ const FloatingBlob = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  useFrame((state) => {
-    const time = state.clock.getElapsedTime();
+  useFrame(() => {
     if (mesh.current) {
       mesh.current.position.x +=
         (mouse.current.x * 1.5 - mesh.current.position.x) * 0.05;

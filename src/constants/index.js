@@ -18,11 +18,12 @@ export const scrollTo = (sectionId) => {
 // ─── Site Config ─────────────────────────────────────────────
 export const SITE_CONFIG = {
   name:     'Umaid Khan',
-  role:     'Creative Developer',
-  version:  'V.02',
+  role:     'Software Developer',
+  version:  'V.02.2',
   year:     '2026',
   location: '19.0260° N, 72.8720° E',
   city:     'Mumbai, India',
+  phone:    '+91 8433800265',
   email:    'umaidkhan8108@gmail.com',
   social: {
     linkedin: 'https://www.linkedin.com/in/umaid-khan',
@@ -30,8 +31,8 @@ export const SITE_CONFIG = {
     twitter:  '#',
   },
   hero: {
-    title:    'Creative \n Developer',
-    subtitle: 'Building bespoke digital experiences with a focus on high-end design and fluid animations.',
+    title:    'Software \n Developer',
+    subtitle: 'IT Graduate with a passion for Web, Game, and App Development. Focused on building practical projects and learning every day.',
     cta:      'Get In Touch',
   },
 };
@@ -41,93 +42,88 @@ export const NAV_LINKS = [
   { name: 'About',   id: '01', section: 'about'        },
   { name: 'Skills',  id: '02', section: 'skills'       },
   { name: 'Works',   id: '03', section: 'projects'     },
-  { name: 'History', id: '04', section: 'experience'   },
-  { name: 'Studies', id: '05', section: 'education'    },
-  { name: 'Awards',  id: '06', section: 'achievements' },
+  { name: 'Studies', id: '04', section: 'education'    },
+  { name: 'Awards',  id: '05', section: 'achievements' },
+  { name: 'Beyond',  id: '06', section: 'languages'    },
   { name: 'Contact', id: '07', section: 'contact'      },
 ];
 
 // ─── Data ────────────────────────────────────────────────────
 export const TECH_STACK = [
-  { category: 'Frontend', items: ['React', 'Next.js', 'Tailwind', 'Framer Motion', 'GSAP'] },
-  { category: 'Backend',  items: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL'] },
-  { category: 'Tools',    items: ['Git', 'Docker', 'Vercel', 'AWS'] },
-];
-
-export const EXPERIENCE = [
-  {
-    company:     'NextGen Solutions',
-    role:        'Lead Developer',
-    period:      '2024 – Present',
-    description: 'Leading frontend architecture for scalable web apps using React and GSAP for high-end visual storytelling.',
-  },
-  {
-    company:     'Tech Innovators',
-    role:        'Full Stack Engineer',
-    period:      '2022 – 2024',
-    description: 'Developed bespoke digital products focusing on performance and micro-interactions.',
-  },
+  { category: 'Languages', items: ['C', 'C++', 'C#', 'Java', 'Python', 'Kotlin'] },
+  { category: 'Web & UI',  items: ['HTML', 'CSS', '.NET', 'Android (XML)'] },
+  { category: 'Tools',     items: ['Git', 'GitHub', 'Firebase', 'Streamlit', 'Android Studio'] },
 ];
 
 export const EDUCATION = [
   {
-    degree:      'Bachelor of Computer Applications',
-    school:      'University of Mumbai',
-    period:      '2019 – 2022',
-    description: 'Focused on software engineering principles and web technologies.',
+    degree:      'Bachelor of Science in Information Technology',
+    school:      'SIWS College, Wadala',
+    period:      '2022 – 2025',
+    percentage:  '85%',
+    description: 'Final-year BSc IT student with a focus on software engineering, Android development, and AI-integrated applications.',
   },
 ];
 
 export const ACHIEVEMENTS = [
   {
-    title:        'Best Developer Award',
-    organization: 'NextGen Solutions',
-    year:         '2025',
-    description:  'Recognized for outstanding contribution to the core UI/UX framework.',
+    title:        'MSSU Competition',
+    organization: 'MSSU — Top 20 Qualifier',
+    year:         '2024',
+    description:  'Qualified among the Top 20 participants in the MSSU competition, demonstrating strong technical and problem-solving skills.',
   },
   {
-    title:        'Open Source Contributor',
-    organization: 'GitHub',
-    year:         '2023',
-    description:  'Active contributor to major frontend libraries and community projects.',
+    title:        'Startup Pitch',
+    organization: 'ICT Academy',
+    year:         '2024',
+    description:  'Presented a startup pitch at ICT Academy, showcasing innovation and entrepreneurial thinking to an industry panel.',
   },
 ];
 
 export const PROJECTS = [
   {
-    title:      "Lumina Labs",
-    category:   "Brand Identity / Web",
-    year:       "2025",
-    index:      "01",
-    color:      "#c8ff00",
-    bg:         "from-[#c8ff0012] to-transparent",
-    tags:       ["Branding", "Motion", "UI"],
-    description: "A full identity system built around light, contrast, and precision type.",
+    title:      'Shopping Cart App',
+    category:   'Android Development',
+    year:       '2024',
+    index:      '01',
+    color:      '#c8ff00',
+    bg:         'from-[#c8ff0012] to-transparent',
+    tags:       ['Kotlin', 'Firebase', 'Android'],
+    description: 'A functional shopping app with secure Firebase login, real-time cart updates with Firestore, and a clean RecyclerView UI with image loading via Glide.',
+    techDetails: ['Kotlin', 'Firebase Auth', 'Firestore', 'Android Jetpack', 'Glide'],
   },
   {
-    title:      "Aether Flow",
-    category:   "Product Design",
-    year:       "2024",
-    index:      "02",
-    color:      "#ff6b35",
-    bg:         "from-[#ff6b3512] to-transparent",
-    tags:       ["UX", "Design System"],
-    description: "Fluid interactions and a scalable component library for a SaaS dashboard.",
-  },
-  {
-    title:      "Nexus Studio",
-    category:   "E-Commerce",
-    year:       "2024",
-    index:      "03",
-    color:      "#a78bfa",
-    bg:         "from-[#a78bfa12] to-transparent",
-    tags:       ["E-Commerce", "Web"],
-    description: "High-conversion storefront with editorial art direction and custom CMS.",
+    title:      'MultiPersonality AI',
+    category:   'AI / Web App',
+    year:       '2024',
+    index:      '02',
+    color:      '#a78bfa',
+    bg:         'from-[#a78bfa12] to-transparent',
+    tags:       ['Python', 'Streamlit', 'AI'],
+    description: 'A chatbot web app featuring multiple AI personalities with distinct conversation styles, powered by Hugging Face Inference API and built with Streamlit.',
+    techDetails: ['Python', 'Streamlit', 'Hugging Face Inference API'],
   },
 ];
 
 export const ABOUT_STATS = [
-  { num: '4+',  label: 'Years Experience' },
-  { num: '20+', label: 'Projects Shipped'  },
-  { num: '2',   label: 'Awards Won'        },
+  { num: '2+',  label: 'Projects Built'   },
+  { num: 'BSc', label: 'IT — 2025'        },
+  { num: '2',   label: 'Awards Won'       },
+];
+
+export const ABOUT_TEXT = [
+  'I am an IT Graduate with a strong interest in building digital solutions. Whether it is developing responsive web applications, creating interactive games, or building mobile apps, I enjoy the process of turning ideas into reality through code.',
+  'As a fresher, I am eager to apply my technical skills to real-world projects and grow as a developer. I am looking for a role where I can learn from experienced professionals and contribute to building meaningful technology.',
+];
+
+export const LANGUAGES = [
+  { name: 'English', level: 'Proficient' },
+  { name: 'Hindi',   level: 'Native'     },
+];
+
+export const INTERESTS = [
+  'Playing Games',
+  'Travelling',
+  'Reading',
+  'Coding',
 ];

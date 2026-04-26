@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ACHIEVEMENTS } from "../../constants";
+import { ACHIEVEMENTS, NAV_LINKS } from "../../constants";
 
 const Achievements = () => (
   <section
@@ -23,7 +23,7 @@ const Achievements = () => (
       >
         <div className="w-6 h-[0.5px] bg-primary/50" />
         <span className="text-[10px] md:text-[11px] font-mono tracking-[0.45em] uppercase text-primary/60">
-          06 / Key Milestones
+          {NAV_LINKS[4].id} / Key Milestones
         </span>
       </motion.div>
 

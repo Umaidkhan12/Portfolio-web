@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { EDUCATION } from "../../constants";
+import { EDUCATION, NAV_LINKS } from "../../constants";
 
 const Education = () => (
   <section
@@ -14,7 +14,7 @@ const Education = () => (
       Study
     </div>
 
-    <div className="max-w-4xl mx-auto relative z-10">
+    <div className="max-w-6xl mx-auto relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@ const Education = () => (
       >
         <div className="w-6 h-[0.5px] bg-primary/50" />
         <span className="text-[10px] md:text-[11px] font-mono tracking-[0.45em] uppercase text-primary/60">
-          05 / Academic Journey
+          {NAV_LINKS[3].id} / Academic Journey
         </span>
       </motion.div>
 
@@ -65,11 +65,20 @@ const Education = () => (
               </span>
             </div>
 
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-[0.5px] bg-primary/40" />
-              <span className="text-[10px] md:text-[11px] font-mono tracking-[0.3em] uppercase text-primary/50">
-                {edu.school}
-              </span>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-y-2 mb-4 pr-1">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-[0.5px] bg-primary/40" />
+                <span className="text-[10px] md:text-[11px] font-mono tracking-[0.3em] uppercase text-primary/50">
+                  {edu.school}
+                </span>
+              </div>
+              {edu.percentage && (
+                <div className="inline-block border border-white/10 bg-white/[0.02] px-3 py-1 ml-5 sm:ml-0 rounded-sm">
+                  <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-primary/70 block">
+                    Score: <span className="text-white/90">{edu.percentage}</span>
+                  </span>
+                </div>
+              )}
             </div>
 
             <p

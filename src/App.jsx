@@ -16,9 +16,9 @@ import SectionHUD from "./components/UI/SectionHUD";
 const About = lazy(() => import("./components/Sections/About"));
 const Skills = lazy(() => import("./components/Sections/Skills"));
 const Projects = lazy(() => import("./components/Sections/Projects"));
-const Experience = lazy(() => import("./components/Sections/Experience"));
 const Education = lazy(() => import("./components/Sections/Education"));
 const Achievements = lazy(() => import("./components/Sections/Achievements"));
+const Languages = lazy(() => import("./components/Sections/Languages"));
 const Contact = lazy(() => import("./components/Sections/Contact"));
 const Footer = lazy(() => import("./components/Sections/Footer"));
 
@@ -59,15 +59,15 @@ function App() {
         <Background3D />
         <Navbar loading={loading} />
         
-        <Hero />
+        <Hero loading={loading} />
         
         <Suspense fallback={null}>
           <About />
           <Skills />
           <Projects />
-          <Experience />
           <Education />
           <Achievements />
+          <Languages />
           <Contact />
           <Footer />
         </Suspense>

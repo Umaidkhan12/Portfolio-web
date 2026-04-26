@@ -35,7 +35,7 @@ const SectionHUD = ({ loading }) => {
     };
   }, [loading]);
 
-  const totalSections = NAV_LINKS.length + 1; // Hero + Links
+  const totalSections = NAV_LINKS.length; // Links
 
   return (
     <div className="fixed left-6 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 z-[100] hidden lg:flex flex-col items-center gap-10 pointer-events-none">
@@ -51,7 +51,7 @@ const SectionHUD = ({ loading }) => {
               transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
               className="text-[10px] font-mono font-bold text-primary"
             >
-              {String(activeIndex + 1).padStart(2, "0")}
+              {String(activeIndex + 0).padStart(2, "0")}
             </motion.span>
           </AnimatePresence>
         </div>
@@ -59,7 +59,7 @@ const SectionHUD = ({ loading }) => {
         {/* Divider Line */}
         <div className="w-[1px] h-20 bg-white/10 relative">
           <motion.div
-            animate={{ height: `${((activeIndex + 1) / totalSections) * 100}%` }}
+            animate={{ height: `${((activeIndex + 0) / totalSections) * 100}%` }}
             className="absolute top-0 left-0 w-full bg-primary/40"
           />
         </div>

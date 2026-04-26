@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useState, useRef } from "react";
-import { PROJECTS } from "../../constants";
+import { PROJECTS, NAV_LINKS } from "../../constants";
 import MaskText from "../UI/MaskText";
 
 const Card = ({ project, i }) => {
@@ -153,7 +153,7 @@ const Projects = () => (
           >
             <div className="w-6 h-[0.5px] bg-primary/50" />
             <span className="text-[10px] md:text-[11px] font-mono tracking-[0.45em] uppercase text-primary/60">
-              03 / Selected Works
+              {NAV_LINKS[2].id} / Selected Works
             </span>
           </motion.div>
 

@@ -48,6 +48,16 @@ Portfolio/
 
 ---
 
+## ⚡ Performance & Production Optimizations
+
+This project has been fully optimized for a production environment:
+- **Code Splitting:** Configured Vite with `manualChunks` to separate heavy dependencies (React, Three.js, GSAP, Framer Motion) into their own isolated chunks. This dramatically improves browser caching and initial load speeds.
+- **Production Minification:** Configured Vite's `esbuild` to automatically strip out all `console.log` and `debugger` statements from the final production bundle.
+- **Console Warning Suppression:** Patched internal React-Three-Fiber deprecation warnings (`THREE.Clock`) to keep the production console perfectly clean.
+- **SEO Ready:** Added `robots` meta tags, `sitemap.xml`, and `robots.txt` for optimal search engine indexing.
+
+---
+
 ## 🛠️ Getting Started
 
 ### Prerequisites
@@ -85,26 +95,13 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## 🌐 Live Demo & Deployment
 
-**Check out the live site: [umaidkhan.vercel.app](https://umaidkhan.vercel.app/)**
+**Check out the live site: [WEBSITE LINK](https://umaidkhan.vercel.app/)**
 
 The easiest way to deploy this portfolio is using the [Vercel Platform](https://vercel.com/new).
 
 1. Push your code to GitHub.
 2. Import your repository into Vercel.
 3. Your portfolio is live!
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
-
----
-
-## 📬 Connect with Me
-
-[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Umaidkhan12)
-[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/umaid-khan)
 
 ---
 

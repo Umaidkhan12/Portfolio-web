@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ABOUT_STATS } from "../../constants";
+import { ABOUT_STATS, ABOUT_TEXT, NAV_LINKS } from "../../constants";
 import MaskText from "../UI/MaskText";
 
 const About = () => (
@@ -26,7 +26,7 @@ const About = () => (
       >
         <div className="w-8 h-[1px] bg-primary" />
         <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary">
-          01 / About
+          {NAV_LINKS[0].id} / About
         </span>
       </motion.div>
 
@@ -36,14 +36,15 @@ const About = () => (
           className="font-heading italic font-bold tracking-tighter leading-none"
           style={{ fontSize: "clamp(40px, 6vw, 64px)" }}
         >
-          Specializing in{" "}
+          A developer who loves{" "}
           <span className="text-white/45 hover:text-white transition-colors duration-500 cursor-default">
-            high-end
+            building
           </span>{" "}
-          digital products
+          things —
           <br />
-          with a focus on <span className="text-primary italic">motion</span> and{" "}
-          <span className="text-white">refined</span> aesthetics.
+          driven by <span className="text-primary italic">curiosity</span> and a
+          hunger to{" "}
+          <span className="text-white">grow.</span>
         </h2>
       </MaskText>
 
@@ -62,10 +63,7 @@ const About = () => (
 
       {/* Two col text */}
       <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-        {[
-          "I bridge the gap between design and technology, creating immersive experiences that resonate. My approach is rooted in minimalism, precision, and a deep understanding of user behavior.",
-          "With a background in both creative design and technical development, I bring a unique perspective to every project, ensuring that every interaction is meaningful and every detail is polished.",
-        ].map((text, i) => (
+        {ABOUT_TEXT.map((text, i) => (
           <motion.p
             key={i}
             initial={{ opacity: 0, y: 20 }}

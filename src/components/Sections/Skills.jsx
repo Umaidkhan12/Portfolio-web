@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { TECH_STACK } from "../../constants";
+import { TECH_STACK, NAV_LINKS } from "../../constants";
 import MaskText from "../UI/MaskText";
 
 const Skills = () => (
@@ -27,7 +27,7 @@ const Skills = () => (
           >
             <div className="w-6 h-[0.5px] bg-primary/50" />
             <span className="text-[10px] md:text-[11px] font-mono tracking-[0.45em] uppercase text-primary/60">
-              02 / Skills & Tools
+              {NAV_LINKS[1].id} / Skills & Tools
             </span>
           </motion.div>
           <MaskText>
